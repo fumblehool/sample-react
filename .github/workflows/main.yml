@@ -11,4 +11,4 @@ jobs:
       - name: Run dev build
         env:
           DIGITALOCEAN_ACCESS_TOKEN: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-        run: wget https://public-bin.ams3.digitaloceanspaces.com/doctl && chmod +x doctl && doctl auth init -t ${DIGITALOCEAN_ACCESS_TOKEN} && doctl apps dev build
+        run: wget -q https://public-bin.ams3.digitaloceanspaces.com/doctl && chmod +x doctl && ./doctl auth init -t ${DIGITALOCEAN_ACCESS_TOKEN} && doctl apps dev build
