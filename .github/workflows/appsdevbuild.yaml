@@ -14,4 +14,4 @@ jobs:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
       - name: Run dev build
-        run: doctl apps dev build
+        run: doctl apps dev build --no-cache
