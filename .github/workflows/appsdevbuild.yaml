@@ -17,8 +17,9 @@ jobs:
         # run: doctl apps dev build --no-cache
         env:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-        
-        run: wget "https://public-bin.ams3.digitaloceanspaces.com/doctl_linux_amd64" && \
-              chmod +x doctl_linux_amd64 && \
-              doctl auth init -t ${token} && \
-              ./doctl_linux_amd64 apps dev build --no-cache
+        run: bash -c 'wget "https://public-bin.ams3.digitaloceanspaces.com/doctl_linux_amd64" && chmod +x doctl_linux_amd64 && ./doctl_linux_amd64 auth init -t $token && ./doctl_linux_amd64 apps dev build --no-cache'
+
+        # run: wget "https://public-bin.ams3.digitaloceanspaces.com/doctl_linux_amd64" && \
+        #       chmod +x doctl_linux_amd64 && \
+        #       doctl auth init -t ${token} && \
+        #       ./doctl_linux_amd64 apps dev build --no-cache
